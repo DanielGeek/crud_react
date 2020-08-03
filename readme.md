@@ -16,3 +16,10 @@ ir a ruta
 # listar  
 `http://localhost:3001/employee/list`  
 
+# front-end  
+ para crear el front-end en reactjs, ejecutamos el comando  
+ `npx create-react-app frontend`  
+ dentro de la carpeta frontend ejecutamos  
+ `npm start`  
+ 
+
