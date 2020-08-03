@@ -10,7 +10,9 @@ dentro de la carpeta nodeBackend ejecutar el siguiente comando
 `http://localhost:3001/employee/save`  
 `http://localhost:3001/employee/test`  
   
-#ejecutar ORM para crear tablas de la bd node  
+# ejecutar ORM para crear tablas de la bd node  
 ir a ruta  
-`http://localhost:3001/employee/testdata`
+`http://localhost:3001/employee/testdata`  
+# listar  
+`http://localhost:3001/employee/list`  
 
