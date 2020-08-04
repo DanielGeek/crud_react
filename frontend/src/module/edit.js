@@ -21,7 +21,7 @@ class EditComponent extends React.Component{
   }
 
   componentDidMount(){
-    let userId = this.props.match.params.employeeId;
+    let userId = this.props.match.params.id;
     const url = baseUrl+"/employee/get/"+userId
     axios.get(url)
     .then(res=>{
