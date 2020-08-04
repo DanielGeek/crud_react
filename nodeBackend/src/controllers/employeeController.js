@@ -5,38 +5,47 @@ var Employee = require('../model/Employee');
 var Role = require('../model/Role');
 
 
-controller.testdata = async ( req, res) => {
+// controller.testdata = async ( req, res) => {
   
-  const response = await sequelize.sync().then(function() {
+//   const response = await sequelize.sync().then(function() {
 
-    //Create role
-    Role.create({
-      role:  'Admin'
-    });
+//     //Create role
+//     Role.create({
+//       role:  'Admin'
+//     });
 
-    // create employee
-    Employee.create({
-      name: 'Johanna Mar',
-      email:  'johanna@mail.com',
-      address: 'Malibu Cr 10 No 54',
-      phone: '123456789',
-      roleId:1
-    });
+//     // create employee
+//     Employee.create({
+//       name: 'Johanna Mar',
+//       email:  'johanna@mail.com',
+//       address: 'Malibu Cr 10 No 54',
+//       phone: '123456789',
+//       roleId:1
+//     });
 
-     const data =  Employee.findAll()
-     return data;
+//      const data =  Employee.findAll()
+//      return data;
+//   })
+//   .catch(err => {
+//     return err;
+//   });
+//   res.json({success : true, data : response})
+
+// }
+
+controller.list = async (req, res) => {
+
+  const data = await Employee.findAll({
+    include: [ Role ]
   })
-  .catch(err => {
-    return err;
-  });
-  res.json({success : true, data : response})
+  .then(function(data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  }); 
 
-}
-
-controller.list = async ( req, res) => {
-
-  const data = await Employee.findAll();
-  res.json(data)
+  res.json({success : true, data : data});
 
 }
 
