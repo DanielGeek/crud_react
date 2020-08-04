@@ -7,6 +7,7 @@ const employeeController = require('../controllers/employeeController')
 
 router.get('/list',employeeController.list );
 router.post('/create',employeeController.create);
+router.get('/get/:id',employeeController.get);
 
 // router.get('/test',employeeController.test);
 // router.get('/save', (req, res) => {

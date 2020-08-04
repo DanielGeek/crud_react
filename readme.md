@@ -2,7 +2,7 @@
 dentro de la carpeta nodeBackend ejecutar el siguiente comando  
 `npm i`  
 
-# inciar proyecto  
+# inciar proyecto backend 
 `npm run dev`  
   
 #rutas  
