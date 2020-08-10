@@ -69,7 +69,8 @@ class EditComponent extends React.Component{
               <option selected value={this.state.dataEmployee.roleId}>{this.state.stringRole}</option>
               <option value="1">Admin</option>
               <option value="2">Project Manager</option>
-              <option value="3">Programer</option>
+              <option value="3">Programer Junior</option>
+              <option value="4">Programer Senior</option>
             </select>
           </div>
           <div class="form-group col-md-6">
@@ -83,10 +84,39 @@ class EditComponent extends React.Component{
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
             value={this.state.campAddress} onChange={(value)=> this.setState({campAddress:value.target.value})}/>
         </div> 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary" onClick={()=>this.sendUpdate()}>Update</button>
       </div>
     );
   }
+
+  sendUpdate(){
+    //  get parameter id
+    let userId = this.props.match.params.id;
+    // url de backend
+    const baseUrl = "http://localhost:3001/employee/update/"+userId
+    // parametros de datos post
+    const datapost = {
+      name : this.state.campName,
+      email : this.state.campEmail,
+      phone : this.state.campPhone,
+      address : this.state.campAddress,
+      role  : this.state.selectRole
+    }
+
+    axios.post(baseUrl,datapost)
+    .then(response=>{
+      if (response.data.success===true) {
+        alert(response.data.message)
+      }
+      else {
+        alert("Error")
+      }
+    }).catch(error=>{
+      alert("Error 34 "+error)
+    })
+
+   }
+
 }
 
 
